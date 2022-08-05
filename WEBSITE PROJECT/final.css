@@ -1,0 +1,462 @@
+
+/*inizio stile barra dei menù --> hamburger.
+finisce alla riga 133*/
+
+/*removing default padding and margin*/
+*{
+  font-family: arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*header color background*/
+header{
+  background-color: transparent;
+ 
+}
+/*creazione del logo*/
+#logo{
+  cursor: pointer;
+  /*per rendere il logo sempre grande uguale anche se cambio la grandezza della pagina*/
+  display: inline-block;
+  max-height: 100px;
+  width: auto;
+  
+}
+
+/*rimuove i punti che si formano quando crei una lista*/
+#navbar li{
+  list-style: none;
+}
+
+/*cambia l'aspetto delle parole nella barra*/
+.nav-link{
+  color:black;
+  text-decoration: none;
+  font-size: 20px;
+  
+}
+
+/*in questo punto cronologico viene sistemata la barra, che passa da essere sotto al logo a essere di fianco, grazie alla flex box*/
+#navbar{
+  height: 100px;
+  display: flex; /*flexbox*/
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/*trasformo il menu in una flexbox, così si passa da una lista di elementi che stavano in verticale, a una lista orrizzontale più bella da vedere*/
+.nav-menu{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 60px;
+}
+
+/*questo fa in modo che quando passi sopra alle parole del menù le caselline si illuminano*/
+.nav-item:hover{
+  background-color: lightgray;
+}
+
+/*questo fa in modo che quando passi sopra alle parole del menù esse cambiano colore*/
+.nav-link:hover{
+  color: dodgerblue;
+}
+
+/* menù ad hamburger che non si vede quando lo schermo è desktop, quidi si mette display: none, quando ci sarà la media per telefono si metterà display: block*/
+.hamburger{
+  display: none;
+  cursor: pointer;
+}
+
+/*creazione delle lineette del menu ad hamburger*/
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /*animazione fighina che passa da menu a x*/
+  background-color: black;
+}
+#background{
+  
+  background-image: url(background.jpg)  ; /*replace image.jpg with path to your image*/
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh; 
+  background-size: 100%;
+}
+
+@media only screen and (max-width:600px){
+  .hamburger{
+    display: block;
+  }
+
+  /*ora si crea l'animazione che permette alla barra di cambiare forma, cioè le tre lineette scompaiono e viene fuori una x.
+  la linetta in alto e quella in basso formeranno la x ruotando di 45 gradi, mentre quella in mezzo scomparirà.
+  quando c'è .active significa che si utilizzerà javascript*/
+
+  /*nella prossima riga la lineetta centrale, cioè la numero 2, scomparirà usando opacity:0*/
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  /*la prima lineetta ruota:
+  con rotate(45deg) la linea ruota in senso orario di 45 gradi, quindi la parte finale della linea, quella di destra, va in basso; dato che questa rotazione scombina la posizione iniziale della linea, è necessario riposizionarla con translateY(8px).
+  Traslo la lineetta di 8 px in basso, a partire dall'angolo in alto a sinistra della lineetta.*/
+  .hamburger.active .bar:nth-child(1){
+    transform:  translateY(8px) rotate(45deg);
+  }
+
+  /*la terza lineetta ruota:
+  con rotate(-45deg) la linea ruota in senso antiorario di 45 gradi, quindi la parte finale della linea, quella a destra, va in alto; dato che questa rotazione scombina la posizione iniziale della linea, è neccessario riposizionarla con translateY(8px). Traslo la lineetta di 8 px in alto, a partire dall'angolo in basso a sinistra della lineetta.*/
+  .hamburger.active .bar:nth-child(3){
+    transform:  translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu{
+    position: absolute;
+    left: -100%;
+    top: 90px;
+    gap: 0;
+    flex-direction: column;
+    background-color:white;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 1; /*il menu che si apre sta sopra a tutto*/
+  }
+
+  .nav-item{
+    margin: 16px 0;
+  }
+
+  .nav-menu.active{
+    left: 0;
+  }
+  #background{
+    background-position: center center;
+  }
+}
+
+/*fine stile barra dei menù --> hamburger*/
+
+
+/*sfondo in tutta la pagina*/
+/*per mettere immagini come sfondo in diversi html, basta dare una classe a "html" e poi usarla come segue*/
+
+
+
+.title{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin-top: 200px;
+  font-size: 50px;
+  color: black;
+  
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+  
+}
+
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  bottom: 20px;
+  width: 100%; 
+  position: absolute;
+  color: black;
+}
+
+#dtm{
+  text-decoration: none;
+  color: blue;
+}
+
+
+/*fine homepage*/
+
+/*proprietà del main*/
+main{
+  color: black;
+  font-family: Arial;
+  line-height: 1.5;
+}
+
+main h2{
+  text-align: left;
+}
+
+/*creazione barra laterale, uguale alla navbar, ma in colonna
+position: fixed cosìcche rimanga per tutta la pagina, anche quando scrollo.
+con questo primo css vado a mettere la lista di fianco al main*/
+#barralaterale {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  /*font-family:Arial;*/
+}
+
+/*questo non so cosa cazzo sia*/
+/*.menu-laterale{
+  overflow-y: auto;
+  overflow-x: hidden;
+}*/
+
+/*cambio lo stile della lista nella barra laterale*/
+.link-laterali{
+  display: block;
+  padding: 10px 30px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*la casella degli elementi diventa grigia quando ci vai sopra col mouse*/
+.item-laterali:hover{
+  background-color: lightgray;
+}
+
+/*le parle cambiano colore quando ci vai sopra col mouse*/
+.barra-link:hover{
+  color: blue;
+}
+
+/*proprietà del documento, in questo caso si potrebbe scrivere anche solo main, dato che è l'unico main che esiste*/
+#main-doc {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 310px;
+  padding: 20px;
+  margin-bottom: 110px;
+
+}
+
+/*proprietà degli articoli*/
+section article {
+  color:black; /*colore delle parole dell'articolo*/
+  margin: 10px;
+  font-size: 0.96em;
+}
+
+/*proprietà delle liste all'interno dell'article*/
+section li {
+  margin: 15px 0px 0px 20px;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-style: italic;
+}
+/*immagine dentro all'articolo*/
+.img{
+  width: 100%;
+}
+
+/*used to personalize the button in learning*/
+#learningg{
+  height: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+
+  #barralaterale{
+    position:absolute;/*rispetto al desktop cambia perchè qui voglio che la barra rimanga solo in alto, e quando scrolli non la vedi più*/
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+
+  }
+
+  #main-doc {
+    margin:300px 10px 0 10px;
+    max-width: 100%;
+  }
+
+  .img{
+    width: 100%;
+  }
+}
+
+
+
+/*QUIZ*/
+h1 {
+    font-size: 2.2rem;
+    color: black;
+    margin-bottom: 5.4rem;
+}
+
+.container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 2rem;
+    color: black;   /*l'ho inserito per lavorare a end game*/
+}
+
+.flex-column{            /*fa in modo che tutto sia centrato*/
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center{               /*fa in modo che tutto sia centrato*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} 
+
+.justify-center{
+    justify-content: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+button{
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    width: 20rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color:white;
+    background-color: #0c3c5cbe;
+    border-radius: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(0,114,244,0.6);      /*PULSANTE CHE VIENE EVIDENZIATO*/
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
+input{
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    border-color: black;
+    border-radius: 5px;
+}
+
+::placeholder{
+    color: black;
+}
+
+
+/*game*/
+.container2{
+    width: 100vw;
+    display: flex;
+    align-items: space;
+    justify-content: space-between;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+    color: black;
+}
+
+.choice-container{
+    display: flex;
+    margin-bottom: 0.8rem;
+    width: 80%;
+    border-radius: 20px;
+    background: rgb(63, 81, 119);
+    font-size: 1.5rem;
+    color: white;
+    margin: 20px 10%;
+}
+
+.choice-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(6,103,247, 0.5);
+    transform: scale(1.02);
+    transform: transform 100ms;
+}
+
+.choice-prefix{
+    padding: 1rem 1.5rem;
+    color: white;
+}
+
+.choice-text{
+    padding: 1rem 1.5rem;
+    width: 100%;
+}
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefix{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.score{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.score-number{
+  text-align: center;
+}
+
+.hud-main-text{
+    text-align: center;
+}
+
+#question{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #quiz{
+    width: 100%;
+  }
+  #question{
+    width: 100%;
+    font-size: 100%;
+  }
+  .score{
+    display: none;
+  }
+  .score-number{
+    visibility: hidden;
+  }
+  .choice-container{
+    max-width: 100%;
+  }
+  .choice-text{
+    width: 100%;
+    font-size: 50%;
+  }
+  #hud{
+    justify-content: center;
+  }
+}
+
+
+
+/*results.html  CSS*/
+#homer{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

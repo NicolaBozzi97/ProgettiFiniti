@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Test your knowledge!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="final.css">
+    </head>
+
+    <body>
+        <header>
+          <nav id="navbar">
+            <!--logo-->
+            <a href="home.html"><img id="logo" src="logo.png" alt="logo"></a>  
+              
+            <!--barra delle opzioni del menù-->
+              <ul class="nav-menu">
+                <li class="nav-item">
+                  <a href="home.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="learning.html" class="nav-link">Learning</a>
+                </li>
+                <li class="nav-item">
+                  <a href="main.html" class="nav-link">Quiz</a>
+                </li>
+              </ul>
+        
+              <!--menù a tendina-->
+              <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+        
+            </nav>
+        </header>
+        <script src="script.js"></script>      <!--  SCOPRI COME INTEGRARE MEGLIO STA ROBA CAZZO -->
+        <script src="navbar.js"></script>
+        <div class="container1">
+            <div id="homen" class="flex-column flex-center">
+                <h1>Ready to play?</h1>
+                <input type="text" placeholder="Insert your name" name="name" id='username' required />
+                <a href="quiz.html"><button id="press" onclick="getName()">Start quiz</button></a>
+            </div>
+        </div>
+    </body>
+</html>

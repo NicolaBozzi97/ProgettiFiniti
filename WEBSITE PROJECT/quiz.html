@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Quiz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="final.css">
+    </head>
+    <body onload="startGame()">   <!--I'm calling the first function at the page load-->
+
+        <header>
+            <nav id="navbar">
+              <!--logo-->
+              <a href="home.html"><img id="logo" src="logo.png" alt="logo"></a>  
+                
+              <!--barra delle opzioni del menù-->
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                    <a href="home.html" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="learning.html" class="nav-link">Learning</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="main.html" class="nav-link">Quiz</a>
+                  </li>
+                </ul>
+          
+                <!--menù a tendina-->
+                <div class="hamburger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+            </header>
+            
+    <div id="game">
+        <div class="container2">
+            <div id="quiz" class="justify-center flex-column">
+                <div id="hud">
+                    <div class="hud-item">
+                        <p id="progressText" class="hud-prefix">
+                            Question
+                        </p>
+                
+
+                    </div>
+                </div>
+            </div>
+                    <div class="hud-item">
+                        <p class="score">
+                            Score
+                        </p>
+                        <h1 class="score-number">
+                            0
+                        </h1>
+                    </div>
+         </div>
+                <h1 id="question">Question!!!!!!</h1>
+                <div class="choice-container">
+                    <p class="choice-text" data-number="1">1</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-text" data-number="2">2</p>
+                </div>
+                <div class="choice-container">
+                    <!--<p class="choice-prefix">C</p>-->
+                    <p class="choice-text" data-number="3">3</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="script.js"></script>
+        <script src="navbar.js"></script>
+    </body>
+</html>
