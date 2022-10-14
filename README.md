@@ -22,7 +22,7 @@ c. Data analysis
 4. CATHAY AIRWAYS BUSINESS MODEL
 a.Business Models
 
-5.MONITORING CONSUMPTION SW DEVELOPMEMNT
+5.MONITORING CONSUMPTION SW DEVELOPMENT
 a. Domain Driven Design
 b. Versioning control with Git
 c. Node js and Express
